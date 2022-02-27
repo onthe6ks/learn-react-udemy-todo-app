@@ -15,8 +15,10 @@ export const App = () => {
     setTodoText("");
   };
 
-  const onClickDelte = () => {
-    alert("delete");
+  const onClickDelte = (index) => {
+    const newTodos = [...incompleteTodos];
+    newTodos.splice(index, 1);
+    setIncompleteTodos(newTodos);
   };
 
   return (
