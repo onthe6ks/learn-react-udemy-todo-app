@@ -12,8 +12,6 @@ export const InputTodos = (props) => {
     borderRadius: "8px"
   };
 
-  console.log(style);
-
   return (
     <div style={style}>
       <input
