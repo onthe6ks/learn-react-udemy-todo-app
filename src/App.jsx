@@ -9,6 +9,9 @@ export const App = () => {
   const [completeTodos, setCompleteTodos] = useState([]);
   const [todoText, setTodoText] = useState("");
 
+  //定数
+  const MAX_TODO = 5;
+
   const onChangeTodoText = (event) => setTodoText(event.target.value);
 
   const onClickAdd = () => {
@@ -50,7 +53,13 @@ export const App = () => {
         todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= MAX_TODO}
       />
+      {incompleteTodos.length >= MAX_TODO && (
+        <p style={{ color: "red" }}>
+          登録できるTodoは5個まで。消化してください
+        </p>
+      )}
 
       <IncompleteTodos
         todos={incompleteTodos}
